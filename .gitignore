@@ -1,5 +1,6 @@
-# ECF Plugin exclude
+# ECFExample ignores
 Plugins/EnhancedCodeFlow
+enc_temp_folder
 
 # Visual Studio 2015 user specific files
 .vs/
