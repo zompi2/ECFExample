@@ -10,7 +10,5 @@ UCLASS()
 class ECFEXAMPLE_API AECFExampleGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-
-
+		
 };
