@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "ECFTypes.h"
 #include "ExampleWidget.generated.h"
 
 UCLASS()
@@ -16,8 +17,47 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void DelayTest();
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void DelayTestFinished();
+
+
+
+	float TickerValue;
+
+	UFUNCTION(BlueprintCallable)
+	void TickerTest();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void TickerTestFinished();
+
+
+	UFUNCTION(BlueprintCallable)
+	void TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, float StopValue);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void TimelineTestFinished();
+
+
+
+	UFUNCTION(BlueprintCallable)
+	void CustomTimelineTest(UCurveFloat* Curve);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void CustomTimelineTestFinished();
+
+
+
 	void AddToLog_Internal(FString Log);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void AddToLog(const FString& Log);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetTickerValue_BP(float NewValue);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetTimelineValue_BP(float NewValue);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetCustomTimelineValue_BP(float NewValue);
 };
