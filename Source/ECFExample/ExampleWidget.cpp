@@ -6,7 +6,7 @@
 void UExampleWidget::DelayTest()
 {
 	AddToLog_Internal(TEXT("Start Delay Test"));
-	UFlow::Delay(this, 2.f, [this]()
+	FFlow::Delay(this, 2.f, [this]()
 	{
 		AddToLog_Internal(TEXT("Delay Test Finished"));
 		DelayTestFinished();
@@ -20,7 +20,7 @@ void UExampleWidget::TickerTest()
 	TickerValue = 0.f;
 	SetTickerValue_BP(TickerValue);
 
-	UFlow::AddTicker(this, [this](float DeltaTime, FECFHandle TickerHandle)
+	FFlow::AddTicker(this, [this](float DeltaTime, FECFHandle TickerHandle)
 	{
 		TickerValue += DeltaTime;
 		SetTickerValue_BP(TickerValue);
@@ -28,7 +28,7 @@ void UExampleWidget::TickerTest()
 		if (TickerValue >= 2.f)
 		{
 			AddToLog_Internal(TEXT("Ticker Test Finished"));
-			UFlow::StopAction(this, TickerHandle);
+			FFlow::StopAction(this, TickerHandle);
 			TickerTestFinished();
 		}
 	});
@@ -40,7 +40,7 @@ void UExampleWidget::TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, 
 
 	SetTimelineValue_BP(0.f);
 
-	UFlow::AddTimeline(this, StartValue, StopValue, 2.f, [this](float Value)
+	FFlow::AddTimeline(this, StartValue, StopValue, 2.f, [this](float Value)
 	{
 		SetTimelineValue_BP(Value);
 	}, [this](float Value)
@@ -57,7 +57,7 @@ void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 
 	SetCustomTimelineValue_BP(0.f);
 
-	UFlow::AddCustomTimeline(this, Curve, [this](float Value)
+	FFlow::AddCustomTimeline(this, Curve, [this](float Value)
 	{
 		SetCustomTimelineValue_BP(Value);
 	}, [this](float Value)
@@ -71,7 +71,7 @@ void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 void UExampleWidget::WaitAndExecuteTest()
 {
 	AddToLog_Internal(TEXT("Start Wait And Execute Test"));
-	UFlow::WaitAndExecute(this, [this]()
+	FFlow::WaitAndExecute(this, [this]()
 	{
 		return bWaitAndExecuteConditional;
 	},
@@ -86,7 +86,7 @@ void UExampleWidget::WhileTrueExecuteTest()
 {
 	AddToLog_Internal(TEXT("Start While True Execute Test"));
 	WhileTrueExecuteTickerValue = 0.f;
-	UFlow::WhileTrueExecute(this, [this]()
+	FFlow::WhileTrueExecute(this, [this]()
 	{
 		if (bWhileTrueExecuteConditional == false)
 		{
