@@ -47,6 +47,28 @@ public:
 
 
 
+	UFUNCTION(BlueprintCallable)
+	void WaitAndExecuteTest();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bWaitAndExecuteConditional = false;
+
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void WaitAndExecuteTestFinished();
+
+
+	UFUNCTION(BlueprintCallable)
+	void WhileTrueExecuteTest();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void WhileTrueExecuteTestFinished();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bWhileTrueExecuteConditional = true;
+
+	float WhileTrueExecuteTickerValue;
+
 	void AddToLog_Internal(FString Log);
 
 	UFUNCTION(BlueprintImplementableEvent)
@@ -60,4 +82,7 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetCustomTimelineValue_BP(float NewValue);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetWhileTrueExecuteTickerValue_BP(float NewValue);
 };

@@ -68,6 +68,40 @@ void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 	});
 }
 
+void UExampleWidget::WaitAndExecuteTest()
+{
+	AddToLog_Internal(TEXT("Start Wait And Execute Test"));
+	UFlow::WaitAndExecute(this, [this]()
+	{
+		return bWaitAndExecuteConditional;
+	},
+	[this]()
+	{
+		AddToLog_Internal(TEXT("Wait And Execute Test Finished"));
+		WaitAndExecuteTestFinished();
+	});
+}
+
+void UExampleWidget::WhileTrueExecuteTest()
+{
+	AddToLog_Internal(TEXT("Start While True Execute Test"));
+	WhileTrueExecuteTickerValue = 0.f;
+	UFlow::WhileTrueExecute(this, [this]()
+	{
+		if (bWhileTrueExecuteConditional == false)
+		{
+			AddToLog_Internal(TEXT("While True Execute Test Finished"));
+			WhileTrueExecuteTestFinished();
+		}
+		return bWhileTrueExecuteConditional;
+	},
+	[this](float DeltaTime)
+	{
+		WhileTrueExecuteTickerValue += DeltaTime;
+		SetWhileTrueExecuteTickerValue_BP(WhileTrueExecuteTickerValue);
+	});
+}
+
 void UExampleWidget::AddToLog_Internal(FString Log)
 {
 	AddToLog(FDateTime::Now().ToString() + TEXT(": ") + Log);
