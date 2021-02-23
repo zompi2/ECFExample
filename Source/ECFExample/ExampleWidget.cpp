@@ -3,6 +3,8 @@
 #include "ExampleWidget.h"
 #include "EnhancedCodeFlow.h"
 
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 void UExampleWidget::DelayTest()
 {
 	AddToLog_Internal(TEXT("Start Delay Test"));
@@ -12,6 +14,8 @@ void UExampleWidget::DelayTest()
 		DelayTestFinished();
 	});
 }
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 void UExampleWidget::TickerTest()
 {
@@ -33,6 +37,8 @@ void UExampleWidget::TickerTest()
 		}
 	});
 }
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 void UExampleWidget::TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, float StopValue)
 {

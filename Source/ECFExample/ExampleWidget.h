@@ -14,21 +14,25 @@ class ECFEXAMPLE_API UExampleWidget : public UUserWidget
 	
 public:
 
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 	UFUNCTION(BlueprintCallable)
 	void DelayTest();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void DelayTestFinished();
 
-
-
-	float TickerValue;
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 	UFUNCTION(BlueprintCallable)
 	void TickerTest();
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void TickerTestFinished();
+
+	float TickerValue;
+
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 
 	UFUNCTION(BlueprintCallable)
