@@ -78,10 +78,10 @@ public:
 	void SetTickerValue_BP(float NewValue);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void SetTimelineValue_BP(float NewValue);
+	void SetTimelineValue_BP(float NewValue, float NewTime);
 
 	UFUNCTION(BlueprintImplementableEvent)
-	void SetCustomTimelineValue_BP(float NewValue);
+	void SetCustomTimelineValue_BP(float NewValue, float NewTime);
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetWhileTrueExecuteTickerValue_BP(float NewValue);

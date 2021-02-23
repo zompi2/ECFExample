@@ -38,14 +38,14 @@ void UExampleWidget::TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, 
 {
 	AddToLog_Internal(TEXT("Start Timeline Test"));
 
-	SetTimelineValue_BP(0.f);
+	SetTimelineValue_BP(0.f, 0.f);
 
-	FFlow::AddTimeline(this, StartValue, StopValue, 2.f, [this](float Value)
+	FFlow::AddTimeline(this, StartValue, StopValue, 2.f, [this](float Value, float Time)
 	{
-		SetTimelineValue_BP(Value);
-	}, [this](float Value)
+		SetTimelineValue_BP(Value, Time);
+	}, [this](float Value, float Time)
 	{
-		SetTimelineValue_BP(Value);
+		SetTimelineValue_BP(Value, Time);
 		AddToLog_Internal(TEXT("Timeline Test Finished"));
 		TimelineTestFinished();
 	}, TimelineFunc, 2.f);
@@ -55,14 +55,14 @@ void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 {
 	AddToLog_Internal(TEXT("Start Custom Timeline Test"));
 
-	SetCustomTimelineValue_BP(0.f);
+	SetCustomTimelineValue_BP(0.f, 0.f);
 
-	FFlow::AddCustomTimeline(this, Curve, [this](float Value)
+	FFlow::AddCustomTimeline(this, Curve, [this](float Value, float Time)
 	{
-		SetCustomTimelineValue_BP(Value);
-	}, [this](float Value)
+		SetCustomTimelineValue_BP(Value, Time);
+	}, [this](float Value, float Time)
 	{
-		SetCustomTimelineValue_BP(Value);
+		SetCustomTimelineValue_BP(Value, Time);
 		AddToLog_Internal(TEXT("Custom Timeline Test Finished"));
 		CustomTimelineTestFinished();
 	});
