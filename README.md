@@ -1,6 +1,6 @@
 # Enhanced Code Flow Example Project
 
-This is a project that showcases all the features of the Enhanced Code Flow plugin for Unreal Engine 4.
+This is a project that showcases all of the features of the Enhanced Code Flow plugin for Unreal Engine 4.
 
 In order to run this project you must get the Enhanced Code Flow plugin from Unreal Engine Marketplace (TODO: link here) and put it to the Plugins directory.
 
