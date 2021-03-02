@@ -16,6 +16,13 @@ public:
 
 	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+	void AddToLog_Internal(FString Log);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void AddToLog(const FString& Log);
+
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 	UFUNCTION(BlueprintCallable)
 	void DelayTest();
 
@@ -30,10 +37,12 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void TickerTestFinished();
 
-	float TickerValue;
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetTickerValue_BP(float NewValue);
+
+	float TickerValue = 0.f;
 
 	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
-
 
 	UFUNCTION(BlueprintCallable)
 	void TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, float StopValue);
@@ -41,7 +50,10 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void TimelineTestFinished();
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetTimelineValue_BP(float NewValue, float NewTime);
 
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 	UFUNCTION(BlueprintCallable)
 	void CustomTimelineTest(UCurveFloat* Curve);
@@ -49,18 +61,21 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void CustomTimelineTestFinished();
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetCustomTimelineValue_BP(float NewValue, float NewTime);
 
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 	UFUNCTION(BlueprintCallable)
 	void WaitAndExecuteTest();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bWaitAndExecuteConditional = false;
-
-
 	UFUNCTION(BlueprintImplementableEvent)
 	void WaitAndExecuteTestFinished();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bWaitAndExecuteConditional = false;
+
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 	UFUNCTION(BlueprintCallable)
 	void WhileTrueExecuteTest();
@@ -68,25 +83,13 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void WhileTrueExecuteTestFinished();
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void SetWhileTrueExecuteTickerValue_BP(float NewValue);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool bWhileTrueExecuteConditional = true;
 
-	float WhileTrueExecuteTickerValue;
+	float WhileTrueExecuteTickerValue = 0.f;
 
-	void AddToLog_Internal(FString Log);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void AddToLog(const FString& Log);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void SetTickerValue_BP(float NewValue);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void SetTimelineValue_BP(float NewValue, float NewTime);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void SetCustomTimelineValue_BP(float NewValue, float NewTime);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void SetWhileTrueExecuteTickerValue_BP(float NewValue);
+	/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 };

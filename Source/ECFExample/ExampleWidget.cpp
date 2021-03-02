@@ -5,6 +5,13 @@
 
 /*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
+void UExampleWidget::AddToLog_Internal(FString Log)
+{
+	AddToLog(FDateTime::Now().ToString() + TEXT(": ") + Log);
+}
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 void UExampleWidget::DelayTest()
 {
 	AddToLog_Internal(TEXT("Start Delay Test"));
@@ -57,6 +64,8 @@ void UExampleWidget::TimelineTest(EECFBlendFunc TimelineFunc, float StartValue, 
 	}, TimelineFunc, 2.f);
 }
 
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 {
 	AddToLog_Internal(TEXT("Start Custom Timeline Test"));
@@ -74,6 +83,8 @@ void UExampleWidget::CustomTimelineTest(UCurveFloat* Curve)
 	});
 }
 
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 void UExampleWidget::WaitAndExecuteTest()
 {
 	AddToLog_Internal(TEXT("Start Wait And Execute Test"));
@@ -87,6 +98,8 @@ void UExampleWidget::WaitAndExecuteTest()
 		WaitAndExecuteTestFinished();
 	});
 }
+
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 
 void UExampleWidget::WhileTrueExecuteTest()
 {
@@ -108,7 +121,4 @@ void UExampleWidget::WhileTrueExecuteTest()
 	});
 }
 
-void UExampleWidget::AddToLog_Internal(FString Log)
-{
-	AddToLog(FDateTime::Now().ToString() + TEXT(": ") + Log);
-}
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
