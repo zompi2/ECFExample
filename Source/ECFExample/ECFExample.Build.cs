@@ -13,6 +13,7 @@ public class ECFExample : ModuleRules
 			"CoreUObject", 
 			"Engine", 
 			"InputCore",
+			"UMG",
 			"EnhancedCodeFlow"
 		});
 	}
